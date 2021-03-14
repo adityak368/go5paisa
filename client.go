@@ -97,7 +97,7 @@ func Login(conf *AppConfig, email string, password string, dob string) (*Client,
 	}
 	httpClient := &http.Client{
 		Jar:     jar,
-		Timeout: 10 * time.Second,
+		Timeout: 20 * time.Second,
 	}
 	loginRequestBody := loginBody{
 		Email:          encryptedEmail,
