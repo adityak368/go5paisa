@@ -47,3 +47,14 @@ type orderStatusPayload struct {
 	Head *payloadHead           `json:"head"`
 	Body orderStatusPayloadBody `json:"body"`
 }
+
+type marketFeedPayload struct {
+	Head *payloadHead          `json:"head"`
+	Body marketFeedPayloadBody `json:"body"`
+}
+
+type marketFeedPayloadBody struct {
+	ClientCode      string            `json:"ClientCode"`
+	ClientLoginType int               `json:"ClientLoginType"`
+	MarketFeedData  []MarketFeedQuery `json:"MarketFeedData"`
+}

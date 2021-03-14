@@ -3,10 +3,13 @@ package go5paisa
 import (
 	"bytes"
 	"encoding/json"
+
 	// "fmt"
 	"errors"
-	"golang.org/x/net/publicsuffix"
 	"io/ioutil"
+
+	"golang.org/x/net/publicsuffix"
+
 	// "log"
 	"net/http"
 	"net/http/cookiejar"
@@ -24,6 +27,7 @@ const (
 	orderPlacementRoute string = "/V1/OrderRequest"
 	orderStatusRoute    string = "/OrderStatus"
 	tradeInfoRoute      string = "/TradeInformation"
+	marketFeedRoute     string = "/MarketFeed"
 
 	// Request codes
 	marginRequestCode         string = "5PMarginV3"
@@ -34,6 +38,7 @@ const (
 	orderStatusRequestCode    string = "5POrdStatus"
 	orderPlacementRequestCode string = "5POrdReq"
 	loginRequestCode          string = "5PLoginV2"
+	marketFeedRequestCode     string = "5PMF"
 
 	// Content Type
 	contentType string = "application/json"
