@@ -54,7 +54,6 @@ type marketFeedPayload struct {
 }
 
 type marketFeedPayloadBody struct {
-	ClientCode      string            `json:"ClientCode"`
 	ClientLoginType int               `json:"ClientLoginType"`
 	MarketFeedData  []MarketFeedQuery `json:"MarketFeedData"`
 }

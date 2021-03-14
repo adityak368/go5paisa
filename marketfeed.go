@@ -43,7 +43,6 @@ func (c *Client) MarketFeed(marketFeedQuery []MarketFeedQuery) ([]MarketFeedData
 	var marketFeedResponse MarketFeedResponse
 	c.appConfig.head.RequestCode = marketFeedRequestCode
 	payloadBody := marketFeedPayloadBody{
-		ClientCode:      c.clientCode,
 		MarketFeedData:  marketFeedQuery,
 		ClientLoginType: 0,
 	}
