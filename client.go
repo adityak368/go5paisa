@@ -139,3 +139,16 @@ func Login(conf *AppConfig, email string, password string, dob string) (*Client,
 	}
 	return client, nil
 }
+
+func New(conf *AppConfig, clientCode string) (*Client, error) {
+	var client *Client
+	httpClient := &http.Client{
+		Timeout: 20 * time.Second,
+	}
+	client = &Client{
+		clientCode: clientCode,
+		connection: httpClient,
+		appConfig:  conf,
+	}
+	return client, nil
+}
