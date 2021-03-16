@@ -142,7 +142,12 @@ func Login(conf *AppConfig, email string, password string, dob string) (*Client,
 
 func New(conf *AppConfig, clientCode string) (*Client, error) {
 	var client *Client
+	jar, err := cookiejar.New(&cookiejar.Options{PublicSuffixList: publicsuffix.List})
+	if err != nil {
+		return nil, err
+	}
 	httpClient := &http.Client{
+		Jar:     jar,
 		Timeout: 20 * time.Second,
 	}
 	client = &Client{

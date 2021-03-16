@@ -40,12 +40,15 @@ type MarketFeedResponse struct {
 
 // MarketFeed fetches market feed of a scrip
 func (c *Client) MarketFeed(marketFeedQuery []MarketFeedQuery) ([]MarketFeedData, error) {
+
 	var marketFeedResponse MarketFeedResponse
 	c.appConfig.head.RequestCode = marketFeedRequestCode
 	payloadBody := marketFeedPayloadBody{
 		MarketFeedData:  marketFeedQuery,
 		ClientLoginType: 0,
+		RefreshRate:     "H",
 	}
+
 	payload := marketFeedPayload{
 		Head: c.appConfig.head,
 		Body: payloadBody,
@@ -60,6 +63,7 @@ func (c *Client) MarketFeed(marketFeedQuery []MarketFeedQuery) ([]MarketFeedData
 	if err != nil {
 		return nil, err
 	}
+
 	parseResBody(resBody, &marketFeedResponse)
 	if marketFeedResponse.Status != 0 {
 		return nil, errors.New(marketFeedResponse.Message)
